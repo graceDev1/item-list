@@ -24,6 +24,4 @@ const UserModel = db.define('tb_users',
 { timestamps: false }
 );
 
-UserModel.belongsTo(ItemModel);
-
 module.exports = UserModel;

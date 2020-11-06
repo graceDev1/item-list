@@ -17,6 +17,6 @@ create table tb_items
 id int primary key auto_increment,
 label varchar(50),
 qte int,
-items int,
-constraint fk_items foreign key(items) references tb_users(id)
+tbUserId int,
+constraint fk_items foreign key(tbUserId) references tb_users(id)
 );
