@@ -10,7 +10,7 @@ const ItemModel = db.define(
             required: true,
             allowNull: false
         },
-        qty:{
+        qte:{
             type: Sequelize.STRING,
             required: true,
             allowNull: false,

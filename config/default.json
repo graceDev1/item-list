@@ -1,5 +1,6 @@
 {
     "database":"learndb",
     "user":"root",
-    "password": "fire"
+    "password": "fire",
+    "secret_key": "item_secret_key"
 }
