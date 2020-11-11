@@ -7,6 +7,22 @@ route.get('/', (req,res)=>{
         res.json(data);
     })
     .catch(err => console.log(err));
+});
+
+route.post('/', (req,res)=>{
+    let { label, qte, tbUserId} = req.body;
+    if(!label || !qte || !tbUserId ) return res.status(400).json({msg:'please fill all fields'});
+    ItemModel.create({label, qte, tbUserId})
+    .then(data=> res.json({msg: 'data inserted successfuly'}))
+    .catch(err => console.log(err));
+})
+
+
+route.delete('/:id', (req,res)=> {
+    let id = req.params.id;
+    ItemModel.destroy({where:{id}})
+    .then(data => res.json({msg:'item was deleted successfully'}))
+    .catch(err => console.log(err));
 })
 
 module.exports = route;
