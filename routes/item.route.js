@@ -1,7 +1,9 @@
 const route = require('express')();
 const ItemModel = require('../models/ItemModel');
 
-route.get('/', (req,res)=>{
+const auth = require('../middleware/authorization');
+
+route.get('/',auth, (req,res)=>{
     ItemModel.findAll()
     .then((data)=>{
         res.json(data);
@@ -9,7 +11,7 @@ route.get('/', (req,res)=>{
     .catch(err => console.log(err));
 });
 
-route.post('/', (req,res)=>{
+route.post('/',auth, (req,res)=>{
     let { label, qte, tbUserId} = req.body;
     if(!label || !qte || !tbUserId ) return res.status(400).json({msg:'please fill all fields'});
     ItemModel.create({label, qte, tbUserId})
@@ -18,7 +20,7 @@ route.post('/', (req,res)=>{
 })
 
 
-route.delete('/:id', (req,res)=> {
+route.delete('/:id',auth, (req,res)=> {
     let id = req.params.id;
     ItemModel.destroy({where:{id}})
     .then(data => res.json({msg:'item was deleted successfully'}))
