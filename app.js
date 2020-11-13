@@ -1,10 +1,16 @@
 const express = require('express');
 const app = express()
 const db = require('./connect/dbConnect');
+const basicAuth = require('express-basic-auth');
+
+
 
 // open cross origin 
 app.use(require('cors')())
 app.use(express.json())
+// app.use(basicAuth({users:{
+//     'grace':'firewall'
+// }}))
 
 db.authenticate()
 .then(()=> console.log('connect'))

@@ -13,6 +13,21 @@ route.get('/',auth, (req,res)=>{
     .catch(err => console.log(err));
 });
 
+
+
+// get items of one user
+route.get('/:id',auth,(req,res)=>{
+    let tbUserId = req.params.id
+    ItemModel.findAll({where: {tbUserId}, attributes: {exclude:['tbUserId']}}) 
+    .then(data => {
+        res.json(data);
+    })
+    .catch(err => console.log(err));
+})
+
+
+
+// add items to database
 route.post('/',auth, (req,res)=>{
     let { label, qte, tbUserId} = req.body;
     if(!label || !qte || !tbUserId ) return res.status(400).json({msg:'please fill all fields'});
@@ -21,6 +36,9 @@ route.post('/',auth, (req,res)=>{
     .catch(err => console.log(err));
 })
 
+
+
+// add items to databases
 
 route.delete('/:id',auth, (req,res)=> {
     let id = req.params.id;
