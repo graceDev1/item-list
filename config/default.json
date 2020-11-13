@@ -2,5 +2,10 @@
     "database":"learndb",
     "user":"root",
     "password": "fire",
-    "secret_key": "item_secret_key"
+    "secret_key": "item_secret_key",
+
+    "databaseC":"b0ke6cv8sipu8kr2p6iz",
+    "userC":"uhdbvgmhvypv6iha",
+    "passwordC": "fp1myMqvUG5SgJ20SFSz",
+    "host":"b0ke6cv8sipu8kr2p6iz-mysql.services.clever-cloud.com"
 }
