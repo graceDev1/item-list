@@ -3,9 +3,10 @@ const UserModel = require('../models/UserModel');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
+const auth = require('../middleware/authorization')
 
 
-route.get('/', (req,res)=>{
+route.get('/',auth, (req,res)=>{
     UserModel.findAll({attributes: {exclude:['password']}})
     .then((data)=> res.json(data))
     .catch(err => res.json(err));
