@@ -3,6 +3,8 @@ const ItemModel = require('../models/ItemModel');
 
 const auth = require('../middleware/authorization');
 
+// const api_authorization = require('../middleware/api_key');
+
 route.get('/',auth, (req,res)=>{
     ItemModel.findAll()
     .then((data)=>{
