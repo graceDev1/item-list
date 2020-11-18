@@ -2,6 +2,30 @@ const db = require('../connect/dbConnect');
 const Sequelize = require('sequelize');
 const UserModel = require('./UserModel');
 
+
+/**
+ * @swagger
+ *  components:
+ *    schemas:
+ *      User:
+ *        type: object
+ *        required:
+ *          - label
+ *          - qte
+ *          - tbUserId
+ *        properties:
+ *          label:
+ *            type: string
+ *          qte:
+ *            type: int
+ *          tbUserId:
+ *             type: int
+ *        example:
+ *           label: joe
+ *           qte: 1
+ *           tbUserId: 1
+ */
+
 const ItemModel = db.define(
     'tb_items',
     {
