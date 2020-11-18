@@ -3,6 +3,7 @@
     "user":"root",
     "password": "fire",
     "secret_key": "item_secret_key",
+    "host1":"localhost",
 
     "databaseC":"b0ke6cv8sipu8kr2p6iz",
     "userC":"uhdbvgmhvypv6iha",

@@ -1,8 +1,8 @@
 const Sequelize = require('sequelize');
 const config = require('config');
 
-const db = new Sequelize(config.get('databaseC'), config.get('userC'), config.get('passwordC'),{
-    host: config.get('host'),
+const db = new Sequelize(config.get('database'), config.get('user'), config.get('password'),{
+    host: config.get('host1'),
     dialect: 'mysql'
 });
 

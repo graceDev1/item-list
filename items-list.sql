@@ -1,4 +1,6 @@
-use b0ke6cv8sipu8kr2p6iz;
+
+
+use learndb;
 
 create table tb_users
 (
