@@ -1,0 +1,161 @@
+{
+    "openapi": "3.0.0",
+    "info":{
+        "version":"1.0.0",
+        "title":"A SIMPLE CRUD APPLICATION",
+        "description":"Learning how to make a crud rest api with express and sequelize",
+        "license":{
+            "name":"MIT",
+            "url":"https://opensource.org/licenses/MIT"
+        }
+    },
+    "servers":[
+        {
+            "url": "http://localhost:5000",
+            "description": "Local Dev"
+        },
+        {
+            "url": "https://itemslist-api.herokuapp.com",
+            "description": "Production"
+        }
+    ],
+    "host":"localhost:5000",
+    "basePath":"",
+    "tags":[
+        {
+            "name":"Item",
+            "description": "API for items list"
+        }
+    ],
+    "schemes":[
+        "http",
+        "https"
+    ],
+    "consumes":[
+        "application/json"
+    ],
+    "produces":[
+        "application/json"
+    ],
+    "paths": {
+        "/api/item":{
+            "get":{
+                "tags": [
+                    "Items"
+                ],
+            "summary": "Get all Items",
+            "responses": {
+                "200":{
+                    "description": "OK",
+                    "schema":{
+                        "$ref":"#/definitions/Items"
+                    }
+                }
+            }
+            },
+            "post":{
+                "tags": [
+                    "Items"
+                ],
+                "summary": "Create an item in the api",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Item that you want to add",
+                        "schema":{
+                            "$ref":"#/definitions/Items"
+                        }
+                    }
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "responses": {
+                    "200":{
+                        "description": "OK",
+                        "$ref":"#/definitions/Items"
+                    },
+                    "400":{
+                        "description": "Failed. Bad post data"
+                    }
+                }
+            }
+        },
+        "/api/item/{id}":{
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "description": "ID of user or items",
+                    "type":"int"
+                }
+            ],
+            "get":{
+                "tags": [
+                    "Items"
+                ],
+                "summary": "Get all user's items by his ID",
+                "responses": {
+                    "200":{
+                        "description": "OK",
+                        "schema":{
+                            "#ref":"#/definitions/Items"
+                        }
+                    },
+                    "400":{
+                        "description": "User ID does not exists"
+                    }
+                }
+            },
+            "delete":{
+                "tags": [
+                    "Items"
+                ],
+                "summary": "Get all user's items by his ID",
+                "responses": {
+                    "200":{
+                        "description": "OK",
+                        "schema":{
+                            "#ref":"#/definitions/Items"
+                        }
+                    },
+                    "400":{
+                        "description": "Item Id does not exist "
+                    }
+                }
+            }
+        }
+    },
+    "definitions":{
+        "User":{
+            "types":"object",
+            "properties":{
+                "name":{
+                    "type":"string"
+                },
+                "email":{
+                    "type":"string"
+                },
+                "password":{
+                    "type":"string"
+                }
+            }
+        },
+        "Items":{
+            "types":"object",
+            "properties":{
+                "label":{
+                    "type":"string"
+                },
+                "qte":{
+                    "type":"string"
+                },
+                "tbUserId":{
+                    "type":"string"
+                }
+            }
+        }
+    }
+}
