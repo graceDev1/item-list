@@ -11,7 +11,7 @@
     },
     "servers":[
         {
-            "url": "http://localhost:5000",
+            "url": "https://item-dev-app.herokuapp.com",
             "description": "Local Dev"
         },
         {
@@ -19,7 +19,7 @@
             "description": "Production"
         }
     ],
-    "host":"localhost:5000",
+    "host":"https://item-dev-app.herokuapp.com/",
     "basePath":"",
     "tags":[
         {
